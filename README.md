@@ -19,7 +19,7 @@ Repositório dedicado para armazenar o código da aplicação proposta no desafi
 
 ## Objetivo Geral
 
-### Montar uma arquitetura de software, criar uma API e a documentar.
+- Montar uma arquitetura de software, criar uma API e documentar.
 
 ## Estrutura da Aplicação
 
