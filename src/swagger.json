@@ -1,0 +1,124 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Enterprises",
+    "description": "Documentation from enterprises api",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [{ "bearerAuth": [] }],
+  "paths": {
+    "/enterpriseNew": {
+      "post": {
+        "tags": ["Enterprise"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cnpj": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "cnpj": "19131243000197"
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "failure to register company"
+          },
+          "200": {
+            "description": "successfully registered company"
+          }
+        }
+      }
+    },
+    "/enterprise": {
+      "get": {
+        "description": "Rota que lista empresas cadastradas",
+        "tags": ["Enterprise"],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "failed"
+          }
+        }
+      }
+    },
+    "/enterprise/cnpj": {
+      "delete": {
+        "description": "Rota que remove empresa pelo cnpj",
+        "sumary": "Remove empresa por cnpj",
+        "tags": ["Enterprise"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cnpj",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "200": {
+            "description": "company successfully deleted"
+          },
+          "400": {
+            "description": "company deletion failure"
+          }
+        }
+      }
+    },
+    "/enterpriseUpdate/cnpj": {
+      "put": {
+        "description": "Rota que atualizar dados da empresa pelo cnpj",
+        "sumary": "Atualiza empresa por cnpj",
+        "tags": ["Enterprise"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cnpj",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "200": {
+            "description": "successfully updated company"
+          },
+          "400": {
+            "description": "failure to update company"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 const db = require("../config/database");
 
-const Enterprise = db.sequelize.define("enterprise", {
+const Enterprise = db.sequelize.define("enterprises", {
   cnpj: {
     type: db.Sequelize.STRING,
   },
